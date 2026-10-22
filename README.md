@@ -53,8 +53,8 @@ All nine tools only read. None of them can change anything in your Vakilat accou
 
 ## Daily limit
 
-Each Vakilat account has a daily number of tool calls per seat: 30 on the free plan, and 100,
-300 or 1,000 on the paid plans. Your use today is shown on app.vakilat.io/connect. When the
+Each Vakilat account has a daily number of tool calls per seat. Your limit and your use today
+are shown on app.vakilat.io/connect. When the
 limit is reached, the tool says so and says when it resets, at midnight India time.
 
 ## Data

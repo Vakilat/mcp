@@ -57,6 +57,5 @@ what each tool needs, such as a query, a citation or a quotation.
 
 - Vakilat is research help for lawyers, not legal advice. A qualified lawyer reviews any
   output before it is relied on for advice, a filing or any decision.
-- Each Vakilat account has a daily number of tool calls per seat: 30 on the free plan, and 100,
-  300 or 1,000 on the paid plans. When the limit is reached, the tool says so and says when it
-  resets, at midnight India time.
+- Each Vakilat account has a daily number of tool calls per seat. When the limit is reached,
+  the tool says so and says when it resets, at midnight India time.
