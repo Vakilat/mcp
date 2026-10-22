@@ -49,12 +49,13 @@
           "positive": [
             {
               "description": "Finds a judgment from its SCC citation and quotes its paragraphs word for word with their numbers and links.",
-              "prompt": "Which Supreme Court judgment is (2014) 8 SCC 273, and what did the Court say about arrests for offences punishable with up to seven years? Quote the paragraphs.",
+              "prompt": "Which Supreme Court judgment is (2022) 10 SCC 51, and what did the Court say about notices under Section 41A CrPC? Quote the paragraphs.",
               "tools_triggered": [
                 "find_by_citation",
+                "search_within",
                 "read_paragraphs"
               ],
-              "expected_behavior": "Names Arnesh Kumar v. State of Bihar with its decision date, its app.vakilat.io link and the Court's official link, then quotes the relevant paragraphs word for word with the Court's paragraph numbers and a link to each paragraph. It cites no judgment the tools did not return."
+              "expected_behavior": "Names Satender Kumar Antil v. Central Bureau of Investigation, decided 11 July 2022 (2022 INSC 690), with its app.vakilat.io link and the Court's official link, then quotes the relevant paragraphs (such as paragraph 24) word for word with the Court's paragraph numbers and a link to each paragraph. It cites no judgment the tools did not return."
             },
             {
               "description": "Searches the judgments for a point of law within a range of years.",
@@ -66,12 +67,12 @@
             },
             {
               "description": "Checks that a quotation is word for word in the paragraph it is attributed to.",
-              "prompt": "Read paragraph 7 of (2014) 8 SCC 273, then check that its first sentence is word for word in that paragraph.",
+              "prompt": "Read paragraph 24 of (2022) 10 SCC 51, then check that its first sentence is word for word in that paragraph.",
               "tools_triggered": [
                 "read_paragraphs",
                 "check_citation"
               ],
-              "expected_behavior": "Quotes paragraph 7 from the tool's text, then reports the check_citation verdict as verified with the quote word for word in paragraph 7, and gives the paragraph's app.vakilat.io link."
+              "expected_behavior": "Quotes paragraph 24 from the tool's text, then reports the check_citation verdict as verified with the quote word for word in paragraph 24, and gives the paragraph's app.vakilat.io link."
             },
             {
               "description": "Maps an old criminal code section to the new code.",
