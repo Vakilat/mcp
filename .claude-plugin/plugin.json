@@ -1,0 +1,20 @@
+{
+  "name": "vakilat",
+  "displayName": "Vakilat",
+  "version": "1.0.0",
+  "description": "Search, read and check Supreme Court of India judgments from 1950, with the Court's own paragraph numbers, word-for-word quote checks, later citing judgments and the IPC to BNS, CrPC to BNSS and Evidence Act to BSA table. Research help for lawyers, not legal advice.",
+  "author": {
+    "name": "NESTCLIP PRIVATE LIMITED",
+    "email": "hello@vakilat.io",
+    "url": "https://www.vakilat.io"
+  },
+  "homepage": "https://www.vakilat.io",
+  "repository": "https://github.com/Vakilat/mcp",
+  "license": "MIT",
+  "keywords": ["india", "law", "supreme-court", "judgments", "citations", "legal-research"],
+  "icon": "./assets/logo.svg",
+  "documentationUrl": "https://github.com/Vakilat/mcp#readme",
+  "supportUrl": "https://www.vakilat.io/contact",
+  "privacyPolicyUrl": "https://www.vakilat.io/privacy",
+  "termsOfServiceUrl": "https://www.vakilat.io/terms"
+}

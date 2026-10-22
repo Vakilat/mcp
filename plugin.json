@@ -1,0 +1,118 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "vakilat",
+  "version": "1.0.0",
+  "description": "Search, read and check Supreme Court of India judgments from 1950, with the Court's own paragraph numbers, word-for-word quote checks, later citing judgments and the IPC to BNS, CrPC to BNSS and Evidence Act to BSA table.",
+  "author": {
+    "name": "NESTCLIP PRIVATE LIMITED",
+    "email": "hello@vakilat.io",
+    "url": "https://www.vakilat.io"
+  },
+  "homepage": "https://www.vakilat.io",
+  "repository": "https://github.com/Vakilat/mcp",
+  "license": "MIT",
+  "keywords": [
+    "india",
+    "law",
+    "supreme-court",
+    "judgments",
+    "citations",
+    "legal-research"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Vakilat",
+        "shortDescription": "Check Supreme Court authority",
+        "longDescription": "Vakilat gives ChatGPT the judgments of the Supreme Court of India from 1950, as the Court published them in its official copies, with the Court's own paragraph numbers.\n\nWith Vakilat, ChatGPT can:\n- search the judgments for a point of law, a provision such as section 438 CrPC, a judge or the parties' names;\n- find the judgment an SCC, AIR, SCR, SCC OnLine or neutral (INSC) citation points to, or the judgment for a case number;\n- read paragraphs word for word by the Court's own numbers, with their pages in the official copy;\n- search inside one judgment for the paragraphs on a point;\n- check a citation, and whether a quotation appears word for word in the judgment and in a named paragraph;\n- list later Supreme Court judgments that cite a judgment, with the citing paragraph, and the authorities a judgment cites;\n- map a section of the IPC, CrPC or Indian Evidence Act to the BNS, BNSS or BSA, and back, with links to the official text of both codes.\n\nEvery result links to the paragraph on app.vakilat.io and to the Court's official copy, and says what Vakilat covers. Vakilat holds no High Court or tribunal judgments yet.\n\nAll tools only read. They never open your Vakilat matters, documents or Library; Vakilat receives only what each tool needs, such as a query, a citation or a quotation.\n\nSign in with your Vakilat account from app.vakilat.io. Each account has a daily number of tool calls per seat.\n\nVakilat is research help for lawyers, not legal advice. Check every authority before relying on it.",
+        "developerName": "NESTCLIP PRIVATE LIMITED",
+        "category": "Research",
+        "capabilities": [
+          "Read"
+        ],
+        "websiteURL": "https://www.vakilat.io",
+        "supportURL": "https://www.vakilat.io/contact",
+        "privacyPolicyURL": "https://www.vakilat.io/privacy",
+        "termsOfServiceURL": "https://www.vakilat.io/terms",
+        "defaultPrompt": [
+          "Which Supreme Court judgment is (2014) 8 SCC 273?",
+          "Find Supreme Court judgments on anticipatory bail under section 438 CrPC.",
+          "What replaced section 302 IPC in the Bharatiya Nyaya Sanhita?"
+        ],
+        "brandColor": "#18181B",
+        "brandColorDark": "#FAFAFA",
+        "composerIcon": "./assets/logo.svg",
+        "logo": "./assets/logo.svg"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Finds a judgment from its SCC citation and quotes its paragraphs word for word with their numbers and links.",
+              "prompt": "Which Supreme Court judgment is (2014) 8 SCC 273, and what did the Court say about arrests for offences punishable with up to seven years? Quote the paragraphs.",
+              "tools_triggered": [
+                "find_by_citation",
+                "read_paragraphs"
+              ],
+              "expected_behavior": "Names Arnesh Kumar v. State of Bihar with its decision date, its app.vakilat.io link and the Court's official link, then quotes the relevant paragraphs word for word with the Court's paragraph numbers and a link to each paragraph. It cites no judgment the tools did not return."
+            },
+            {
+              "description": "Searches the judgments for a point of law within a range of years.",
+              "prompt": "Find Supreme Court judgments since 2015 on anticipatory bail under section 438 CrPC.",
+              "tools_triggered": [
+                "search_judgments"
+              ],
+              "expected_behavior": "Lists Supreme Court judgments decided in 2015 or later, each with its title, decision date, app.vakilat.io link, official link and matching paragraphs, and says that the coverage is Supreme Court of India judgments only, from 1950."
+            },
+            {
+              "description": "Checks that a quotation is word for word in the paragraph it is attributed to.",
+              "prompt": "Read paragraph 7 of (2014) 8 SCC 273, then check that its first sentence is word for word in that paragraph.",
+              "tools_triggered": [
+                "read_paragraphs",
+                "check_citation"
+              ],
+              "expected_behavior": "Quotes paragraph 7 from the tool's text, then reports the check_citation verdict as verified with the quote word for word in paragraph 7, and gives the paragraph's app.vakilat.io link."
+            },
+            {
+              "description": "Maps an old criminal code section to the new code.",
+              "prompt": "What replaced section 302 IPC in the Bharatiya Nyaya Sanhita?",
+              "tools_triggered": [
+                "old_and_new_code"
+              ],
+              "expected_behavior": "Gives the corresponding BNS section from the table, how the two relate and how sure the table is, with links to the official text of the IPC and the BNS, and reminds the reader to check before relying on it."
+            },
+            {
+              "description": "Lists later judgments that cite a judgment, without calling them followed or overruled.",
+              "prompt": "Which later Supreme Court judgments cite Arnesh Kumar v. State of Bihar, (2014) 8 SCC 273?",
+              "tools_triggered": [
+                "cited_by"
+              ],
+              "expected_behavior": "Lists later Supreme Court judgments that cite it, each with its citing paragraphs and links, and says that a citation alone does not show whether the judgment was followed, distinguished or overruled."
+            }
+          ],
+          "negative": [
+            {
+              "description": "A question about another country's law; Vakilat holds only Supreme Court of India judgments, so it should not be used.",
+              "prompt": "What did the US Supreme Court hold in Miranda v. Arizona?"
+            },
+            {
+              "description": "A creative writing request with no legal research; Vakilat should not be used.",
+              "prompt": "Write a short poem about the monsoon in Mumbai."
+            },
+            {
+              "description": "A general arithmetic question; Vakilat should not be used.",
+              "prompt": "What is 18 percent of 4,500 rupees?"
+            }
+          ]
+        },
+        "commerce": false
+      },
+      "publication": {
+        "countries": [
+          "IN"
+        ],
+        "release_notes": "First release: nine read-only tools over Supreme Court of India judgments from 1950, and the Vakilat skill."
+      }
+    }
+  }
+}

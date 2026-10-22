@@ -1,0 +1,17 @@
+{
+  "name": "vakilat",
+  "description": "Vakilat for AI assistants: Supreme Court of India judgments, quote checks and the old and new criminal code table.",
+  "owner": {
+    "name": "NESTCLIP PRIVATE LIMITED",
+    "email": "hello@vakilat.io",
+    "url": "https://www.vakilat.io"
+  },
+  "plugins": [
+    {
+      "name": "vakilat",
+      "source": "./",
+      "description": "Search, read and check Supreme Court of India judgments from 1950 with the Vakilat tools.",
+      "category": "legal"
+    }
+  ]
+}
